@@ -1,6 +1,7 @@
+// The initial array of cats
 const cats = ["Milo", "Otis", "Garfield"];
 
-
+// Destructive functions
 function destructivelyAppendCat(name) {
   cats.push(name);
   return cats;
@@ -21,22 +22,35 @@ function destructivelyRemoveFirstCat() {
   return cats;
 }
 
-
+// Non-destructive functions
 function appendCat(name) {
-  return [...cats, name];        // spread + add at end
+  return [...cats, name];
 }
 
 function prependCat(name) {
-  return [name, ...cats];        // add at start
+  return [name, ...cats];
 }
 
 function removeLastCat() {
-  return cats.slice(0, cats.length - 1); // copy except last
+  return cats.slice(0, cats.length - 1);
 }
 
 function removeFirstCat() {
-  return cats.slice(1);          // copy except first
+  return cats.slice(1);
 }
+
+// Export so tests can access
+module.exports = {
+  cats,
+  destructivelyAppendCat,
+  destructivelyPrependCat,
+  destructivelyRemoveLastCat,
+  destructivelyRemoveFirstCat,
+  appendCat,
+  prependCat,
+  removeLastCat,
+  removeFirstCat,
+};
 
 
 
